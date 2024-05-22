@@ -1,7 +1,7 @@
 # Web Stack Outage Postmortem
 
 ## Issue Summary
-- **Duration**: May 12, 2024, 08:00 AM - May 12, 2024, 10:30 AM (UTC)
+- **Duration**: April 12, 2024, 08:00 AM - May 12, 2024, 11:30 AM (UTC)
 - **Impact**: The web application was inaccessible to 80% of users during the outage, resulting in service disruption and user frustration.
 - **Root Cause**: The outage was caused by a misconfigured firewall rule blocking incoming traffic to the application server.
 
@@ -48,3 +48,12 @@ Contributions to improving the postmortem document or implementing corrective/pr
 
 ## License
 This repository and its contents are licensed under the MIT License. See the LICENSE file for more details.
+
+
+
+ 
+
+
+
+
+
