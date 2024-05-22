@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Installs and configures nginx to serve a "Hello World!" page
+
+# Update package lists
+if ! apt-get update; then
+    echo "Failed to update package lists"
+    exit 1
+fi
+
+# Install nginx
+if ! apt-get -y install nginx; then
+    echo "Failed to install nginx"
+    exit 1
+fi
+
+# Allow Nginx HTTP through the firewall
+if ! ufw allow 'Nginx HTTP'; then
+    echo "Failed to allow Nginx HTTP through the firewall"
+    exit 1
+fi
+
+# Create a simple web page
+if ! echo "Hello World!" > /var/www/html/index.html; then
+    echo "Failed to create the index.html file"
+    exit 1
+fi
+
+# Start nginx service
+if ! service nginx start; then
+    echo "Failed to start nginx"
+    exit 1
+fi
+
+echo "Nginx installation and configuration completed successfully"
+
