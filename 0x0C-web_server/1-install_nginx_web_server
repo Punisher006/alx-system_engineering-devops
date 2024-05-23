@@ -19,16 +19,22 @@ if ! ufw allow 'Nginx HTTP'; then
     exit 1
 fi
 
-# Create a simple web page
-if ! echo "Hello World!" > /var/www/html/index.html; then
+# Create a new custom index.html
+if ! echo "Hello World!" | sudo tee /var/www/html/index.html; then
     echo "Failed to create the index.html file"
     exit 1
 fi
 
-# Start nginx service
-if ! service nginx start; then
+# Restart Nginx to apply changes (without using systemctl)
+if ! sudo service nginx restart; then
     echo "Failed to start nginx"
     exit 1
+fi
+
+# Make the Script Executable
+if ! Make the Script Executable; then
+	echo "Failed to execute script"
+	exit 1
 fi
 
 echo "Nginx installation and configuration completed successfully"
