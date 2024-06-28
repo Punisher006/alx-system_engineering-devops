@@ -1,41 +1,8 @@
 #!/usr/bin/env bash
-# Installs and configures nginx to serve a "Hello World!" page
+# installs nginx and configure it to listen on port 80
+# print "Hello World"
 
-# Update package lists
-if ! apt-get update; then
-    echo "Failed to update package lists"
-    exit 1
-fi
-
-# Install nginx
-if ! apt-get -y install nginx; then
-    echo "Failed to install nginx"
-    exit 1
-fi
-
-# Allow Nginx HTTP through the firewall
-if ! ufw allow 'Nginx HTTP'; then
-    echo "Failed to allow Nginx HTTP through the firewall"
-    exit 1
-fi
-
-# Create a new custom index.html
-if ! echo "Hello World!" | sudo tee /var/www/html/index.html; then
-    echo "Failed to create the index.html file"
-    exit 1
-fi
-
-# Restart Nginx to apply changes (without using systemctl)
-if ! sudo service nginx restart; then
-    echo "Failed to start nginx"
-    exit 1
-fi
-
-# Make the Script Executable
-if ! Make the Script Executable; then
-	echo "Failed to execute script"
-	exit 1
-fi
-
-echo "Nginx installation and configuration completed successfully"
-
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+sudo service nginx start
